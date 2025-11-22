@@ -53,12 +53,22 @@ Desenvolver uma aplicação cliente/servidor utilizando comunicação via **sock
 
 ### Como Rodar
 
+    mvn clean install
+
+
   * Server
 
     ```bash
-      mvn clean install
-      java -jar target/server-1.0.0-jar-with-dependencies.jar
+      java -jar server/target/server-1.0.0-jar-with-dependencies.jar
     ```
+
+  * Cliente
+
+    ```bash
+        java -jar client/target/client-1.0.0-jar-with-dependencies.jar
+    ```
+
+
 
 ## ⚙️ Requisitos Técnicos
 
