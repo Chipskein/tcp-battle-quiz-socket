@@ -29,14 +29,23 @@ public class Game {
 
     private final InMemoryDB db;
 
-    public Game() {
+    private final Match currentMatch;
+
+    public Game(Match currentMatch) {
         this.db = InMemoryDB.getInstance();
+        this.currentMatch = currentMatch;
+    }
+
+    public Game(Player p1, Player p2) {
+        this.db = InMemoryDB.getInstance();
+        this.currentMatch = new Match(p1, p2);
     }
 
     public void reset(){
         log.info("Resetting game state");
         askedQuestions.clear();
-        db.getPlayers().forEach(p -> p.removeScore(p.getScore()));
+        currentMatch.getPlayers().forEach(p -> p.removeScore(p.getScore()));
+
     }
 
     public Question getRandomQuestion() {
@@ -117,7 +126,7 @@ public class Game {
     }
 
     public boolean hasWinner() {
-        return (db.getPlayers().stream()
+        return (currentMatch.getPlayers().stream()
                 .anyMatch(p -> p.getScore() >= POINTS_TO_WIN));
     }
 

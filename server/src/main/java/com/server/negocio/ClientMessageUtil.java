@@ -12,7 +12,7 @@ public class ClientMessageUtil {
 
     private static final ObjectMapper mapper = new ObjectMapper();
 
-    public static <T> T waitFor(Player p, Command expected, Class<T> clazz) {
+    public static <T> T waitFor(Player p, Command expected, Class<T> clazz) throws RuntimeException {
         while (true) {
 
             if (Thread.currentThread().isInterrupted()) {

@@ -9,6 +9,7 @@ import java.util.*;
 
 import com.server.negocio.Player;
 import com.server.negocio.Question;
+import com.server.negocio.Match;
 
 public class InMemoryDB {
 
@@ -16,7 +17,7 @@ public class InMemoryDB {
 
     private List<Question> questions;
 
-    private List<Player> players;
+    private List<Match> matches = Collections.synchronizedList(new ArrayList<>());
 
     private static final String DATA_FILE = "data.json";
 
@@ -37,8 +38,6 @@ public class InMemoryDB {
                 new TypeReference<List<Question>>() {}
             );
 
-            players = new ArrayList<>();
-
         } catch (IOException e) {
             throw new RuntimeException("Failed to load " + DATA_FILE, e);
         }
@@ -58,16 +57,17 @@ public class InMemoryDB {
         return questions.stream().filter(i -> i.id == id).findFirst();
     }
 
-    public List<Player> getPlayers() {
-        return players;
+    public void addMatch(Player p1, Player p2) {
+        matches.add(new Match(p1, p2));
     }
 
-    public void addPlayer(Player player) {
-        players.add(player);
+    public void removeMatch(Player p1, Player p2) {
+        matches.removeIf(m -> (m.getP1().equals(p1) && m.getP2().equals(p2)) ||
+                            (m.getP1().equals(p2) && m.getP2().equals(p1)));
     }
 
-    public Optional<Player> getPlayer(String nickname){
-        return players.stream().filter(i -> i.getNickname().equalsIgnoreCase(nickname)).findFirst();
+    public Optional<Match> getMatch(Player p) {
+        return matches.stream().filter(m -> m.contains(p)).findFirst();
     }
 
 }

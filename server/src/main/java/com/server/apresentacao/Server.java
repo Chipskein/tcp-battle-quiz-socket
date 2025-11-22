@@ -15,13 +15,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.logging.Logger;
 
 public class Server {
+
     private static final Logger log = Logger.getLogger(Server.class.getName());
 
     private static final int PORT = 10000;
 
     private final InMemoryDB db = InMemoryDB.getInstance();
-
-    private final Game game = new Game();
 
     public void start() {
         log.log(Level.INFO, "Servidor Battle Quiz iniciado na porta {0}", PORT);
@@ -32,15 +31,22 @@ public class Server {
                 Socket s1 = serverSocket.accept();
                 Player p1 = createPlayer(s1);
 
+                if (p1 == null) {
+                    log.log(Level.WARNING, "Falha ao criar jogador para o socket: {0}", s1);
+                    continue;
+                }
+
                 Socket s2 = serverSocket.accept();
                 Player p2 = createPlayer(s2);
 
-                db.addPlayer(p1);
-                db.addPlayer(p2);
+                if (p2 == null) {
+                    log.log(Level.WARNING, "Falha ao criar jogador para o socket: {0}", s2);
+                    continue;
+                }
 
                 log.log(Level.INFO, "Jogadores conectados: {0} vs {1}", new Object[]{p1.getNickname(), p2.getNickname()});
 
-                playMatch(p1, p2);
+                new Thread(() -> playMatch(p1, p2)).start();
             }
 
         } catch (IOException e) {
@@ -48,21 +54,30 @@ public class Server {
         }
     }
 
-    private Player createPlayer(Socket socket) throws IOException {
-        Player p = new Player(socket);
+    private Player createPlayer(Socket socket) {
+        try{
+            Player p = new Player(socket);
 
-        sendCommand(Command.SEND_YOUR_NICKNAME, p, null);
+            sendCommand(Command.SEND_YOUR_NICKNAME, p, null);
 
-        NicknameData msg = ClientMessageUtil.waitFor(p, Command.SENT_YOUR_NICKNAME, NicknameData.class);
+            NicknameData msg = ClientMessageUtil.waitFor(p, Command.SENT_YOUR_NICKNAME, NicknameData.class);
 
-        p.setNickname(msg.nickname);
+            p.setNickname(msg.nickname);
 
-        sendCommand(Command.CONNECTED, p, null);
+            sendCommand(Command.CONNECTED, p, null);
 
-        return p;
+            return p;
+        } catch (IOException e) {
+            log.log(Level.SEVERE, "Erro ao criar jogador: {0}", e.getMessage());
+            return null;
+        } catch (RuntimeException e) {
+            log.log(Level.SEVERE, "Erro na conexao: {0}", e.getMessage());
+            return null;
+        }
     }
 
     private void playMatch(Player p1, Player p2) {
+        Game game = new Game(p1,p2);
         game.reset();
         sendCommand(Command.GAME_START, p1, null);
         sendCommand(Command.GAME_START, p2, null);
@@ -76,6 +91,10 @@ public class Server {
             try {
                 game.checkRound(p1, p2, q.id);
             } catch (IOException e) {
+                log.log(Level.SEVERE, "Erro durante a rodada: {0}", e.getMessage());
+                close(p1);
+                close(p2);
+                db.removeMatch(p1, p2);
                 break;
             }
 
@@ -87,6 +106,7 @@ public class Server {
                 if (!askPlayAgain(p1, p2)) {
                     close(p1);
                     close(p2);
+                    db.removeMatch(p1, p2);
                     return;
                 }
 
