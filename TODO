@@ -39,7 +39,7 @@
     h. Caso contrário, o servidor encerra as conexões e volta ao estado de espera
     de novos jogadores.
 
-[ ] Cliente
+[X] Cliente(Testar)
     ▪ Enviam os NICKNAME dos jogadores ao servidor na porta especificada.
     ▪ Aguardam pelas questões;
     ▪ Enviam respostas fornecidas pelos jogadores rapidamente;
