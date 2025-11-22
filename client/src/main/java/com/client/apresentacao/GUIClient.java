@@ -37,6 +37,10 @@ public class GUIClient {
     private JButton playYesButton;
     private JButton playNoButton;
     private JTextArea statusArea;
+    private JButton optionsButton;
+    private JPanel volumePanel;
+    private JSlider bgmSlider;
+    private JSlider fxSlider;
 
     private BufferedWriter out;
     private final ObjectMapper mapper = new ObjectMapper();
@@ -104,11 +108,54 @@ public class GUIClient {
         statusPanel.add(scrollPane, BorderLayout.CENTER);
         statusPanel.setPreferredSize(new Dimension(frame.getWidth(), 150));
 
+        // --- Options Button ---
+        optionsButton = new JButton("Opções");
+        optionsButton.addActionListener(e -> toggleVolumePanel());
+        statusPanel.add(optionsButton, BorderLayout.NORTH);
+
+        // --- Volume Panel ---
+        volumePanel = new JPanel();
+        volumePanel.setLayout(new BoxLayout(volumePanel, BoxLayout.Y_AXIS));
+        volumePanel.setBorder(BorderFactory.createTitledBorder("Volume"));
+
+        // BGM
+        JLabel bgmLabel = new JLabel("BGM", SwingConstants.CENTER);
+        bgmLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        bgmSlider = new JSlider(JSlider.VERTICAL, -80, 6, (int) audioManager.getBGMVolume());
+        bgmSlider.setMajorTickSpacing(20);
+        bgmSlider.setMinorTickSpacing(5);
+        bgmSlider.setPaintTicks(true);
+        bgmSlider.setPaintLabels(true);
+        bgmSlider.addChangeListener(e -> audioManager.setBGMVolume(bgmSlider.getValue()));
+        bgmSlider.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        // FX
+        JLabel fxLabel = new JLabel("FX", SwingConstants.CENTER);
+        fxLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        fxSlider = new JSlider(JSlider.VERTICAL, -80, 6, (int) audioManager.getFXVolume());
+        fxSlider.setMajorTickSpacing(20);
+        fxSlider.setMinorTickSpacing(5);
+        fxSlider.setPaintTicks(true);
+        fxSlider.setPaintLabels(true);
+        fxSlider.addChangeListener(e -> audioManager.setFXVolume(fxSlider.getValue()));
+        fxSlider.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        // Add sliders
+        volumePanel.add(bgmLabel);
+        volumePanel.add(bgmSlider);
+        volumePanel.add(Box.createVerticalStrut(10));
+        volumePanel.add(fxLabel);
+        volumePanel.add(fxSlider);
+
+        // hide initially
+        volumePanel.setVisible(false);
+
         // --- Add panels to CardLayout ---
         mainPanel.add(nicknamePanel, "nickname");
         mainPanel.add(questionPanel, "question");
         mainPanel.add(playAgainPanel, "playagain");
 
+        frame.add(volumePanel, BorderLayout.EAST);
         frame.add(mainPanel, BorderLayout.CENTER);
         frame.add(statusPanel, BorderLayout.SOUTH);
 
@@ -116,6 +163,13 @@ public class GUIClient {
 
         frame.setVisible(true);
     }
+
+    private void toggleVolumePanel() {
+        volumePanel.setVisible(!volumePanel.isVisible());
+        frame.revalidate();
+        frame.repaint();
+    }
+
     private void sendNickname() {
         try {
             nickname = nicknameField.getText().trim();
@@ -213,6 +267,16 @@ public class GUIClient {
                                 }
                                 for (Component c : optionsPanel.getComponents()) c.setEnabled(false);
                             } catch (IOException ex) {
+                                if(ex.getMessage().equalsIgnoreCase("socket closed")){
+                                    appendStatus("Conexão fechada. Não é possível enviar a resposta. Closing in 3 seconds...");
+                                    Timer timer = new Timer(3000, evt -> {
+                                        frame.dispose();
+                                        System.exit(0);
+                                    });
+                                    timer.setRepeats(false);
+                                    timer.start();
+                                    return;
+                                }
                                 appendStatus("Erro ao enviar resposta: " + ex.getMessage());
                             }
                         });

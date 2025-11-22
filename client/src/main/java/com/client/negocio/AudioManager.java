@@ -12,9 +12,13 @@ public class AudioManager {
     private static final Logger log = Logger.getLogger(AudioManager.class.getName());
 
     private Clip bgmClip;
-    private static final float MIN_VOLUME = -80.0f;
-    private static final float MAX_VOLUME = 6.0f;
+
+    public static final float MIN_VOLUME = -80.0f;
+
+    public static final float MAX_VOLUME = 6.0f;
+
     private float bgmVolume = 0f;
+
     private float fxVolume = 0f;
 
     public void setBGMVolume(float dB) {
@@ -36,6 +40,14 @@ public class AudioManager {
             dB = MAX_VOLUME;
         }
         fxVolume = dB;
+    }
+
+    public float getBGMVolume() {
+        return bgmVolume;
+    }
+
+    public float getFXVolume() {
+        return fxVolume;
     }
 
     private void setVolume(Clip clip, float dB) {

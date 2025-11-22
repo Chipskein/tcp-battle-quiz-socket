@@ -41,6 +41,7 @@ public class Server {
 
                 if (p2 == null) {
                     log.log(Level.WARNING, "Falha ao criar jogador para o socket: {0}", s2);
+                    p1.close();
                     continue;
                 }
 
