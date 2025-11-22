@@ -598,5 +598,485 @@
       "E": "GPS"
     },
     "correctAnswer": "B"
+  },
+  {
+    "id": 51,
+    "question": "Qual é o segundo maior planeta do Sistema Solar?",
+    "options": {
+      "A": "Urano",
+      "B": "Júpiter",
+      "C": "Saturno",
+      "D": "Netuno",
+      "E": "Marte"
+    },
+    "correctAnswer": "C"
+  },
+  {
+    "id": 52,
+    "question": "Quem escreveu 'Dom Quixote'?",
+    "options": {
+      "A": "Miguel de Cervantes",
+      "B": "Camões",
+      "C": "Shakespeare",
+      "D": "Kafka",
+      "E": "Tolstói"
+    },
+    "correctAnswer": "A"
+  },
+  {
+    "id": 53,
+    "question": "Qual é o símbolo químico do ouro?",
+    "options": {
+      "A": "O",
+      "B": "Go",
+      "C": "Au",
+      "D": "Ag",
+      "E": "Gd"
+    },
+    "correctAnswer": "C"
+  },
+  {
+    "id": 54,
+    "question": "Quem descobriu o Brasil segundo a história oficial?",
+    "options": {
+      "A": "Cristóvão Colombo",
+      "B": "Vasco da Gama",
+      "C": "Pedro Álvares Cabral",
+      "D": "Fernão de Magalhães",
+      "E": "Bartolomeu Dias"
+    },
+    "correctAnswer": "C"
+  },
+  {
+    "id": 55,
+    "question": "Qual destes países NÃO faz parte do Reino Unido?",
+    "options": {
+      "A": "Escócia",
+      "B": "Inglaterra",
+      "C": "País de Gales",
+      "D": "Irlanda do Norte",
+      "E": "Irlanda"
+    },
+    "correctAnswer": "E"
+  },
+  {
+    "id": 56,
+    "question": "Em que continente fica o Monte Everest?",
+    "options": {
+      "A": "Europa",
+      "B": "Ásia",
+      "C": "África",
+      "D": "América do Norte",
+      "E": "Oceania"
+    },
+    "correctAnswer": "B"
+  },
+  {
+    "id": 57,
+    "question": "Quantos cromossomos possui um ser humano saudável?",
+    "options": {
+      "A": "22",
+      "B": "44",
+      "C": "46",
+      "D": "48",
+      "E": "52"
+    },
+    "correctAnswer": "C"
+  },
+  {
+    "id": 58,
+    "question": "Qual a capital da Noruega?",
+    "options": {
+      "A": "Oslo",
+      "B": "Copenhague",
+      "C": "Estocolmo",
+      "D": "Helsinque",
+      "E": "Reykjavik"
+    },
+    "correctAnswer": "A"
+  },
+  {
+    "id": 59,
+    "question": "Quem formulou as leis do movimento?",
+    "options": {
+      "A": "Einstein",
+      "B": "Newton",
+      "C": "Galileu",
+      "D": "Tesla",
+      "E": "Kepler"
+    },
+    "correctAnswer": "B"
+  },
+  {
+    "id": 60,
+    "question": "Qual é o maior rio do mundo em extensão?",
+    "options": {
+      "A": "Amazonas",
+      "B": "Nilo",
+      "C": "Mississipi",
+      "D": "Yangtzé",
+      "E": "Congo"
+    },
+    "correctAnswer": "A"
+  },
+  {
+    "id": 61,
+    "question": "A Guerra Fria foi um conflito principalmente entre quais países?",
+    "options": {
+      "A": "China e Japão",
+      "B": "EUA e URSS",
+      "C": "França e Alemanha",
+      "D": "Inglaterra e EUA",
+      "E": "URSS e Alemanha"
+    },
+    "correctAnswer": "B"
+  },
+  {
+    "id": 62,
+    "question": "Qual elemento químico tem número atômico 1?",
+    "options": {
+      "A": "Carbono",
+      "B": "Hélio",
+      "C": "Hidrogênio",
+      "D": "Lítio",
+      "E": "Oxigênio"
+    },
+    "correctAnswer": "C"
+  },
+  {
+    "id": 63,
+    "question": "Em que país se originou o futebol moderno?",
+    "options": {
+      "A": "Brasil",
+      "B": "França",
+      "C": "Alemanha",
+      "D": "Inglaterra",
+      "E": "Espanha"
+    },
+    "correctAnswer": "D"
+  },
+  {
+    "id": 64,
+    "question": "O que estuda a cartografia?",
+    "options": {
+      "A": "Clima",
+      "B": "Mapas",
+      "C": "Rochas",
+      "D": "Animais",
+      "E": "Estrelas"
+    },
+    "correctAnswer": "B"
+  },
+  {
+    "id": 65,
+    "question": "Qual é o menor país do mundo?",
+    "options": {
+      "A": "Mônaco",
+      "B": "Vaticano",
+      "C": "Liechtenstein",
+      "D": "San Marino",
+      "E": "Luxemburgo"
+    },
+    "correctAnswer": "B"
+  },
+  {
+    "id": 66,
+    "question": "Que nome recebe o processo de divisão celular que origina duas células-filhas?",
+    "options": {
+      "A": "Meiose",
+      "B": "Mitose",
+      "C": "Fagocitose",
+      "D": "Clivagem",
+      "E": "Exocitose"
+    },
+    "correctAnswer": "B"
+  },
+  {
+    "id": 67,
+    "question": "Qual é a capital do Canadá?",
+    "options": {
+      "A": "Toronto",
+      "B": "Vancouver",
+      "C": "Ottawa",
+      "D": "Montreal",
+      "E": "Quebec"
+    },
+    "correctAnswer": "C"
+  },
+  {
+    "id": 68,
+    "question": "A fotossíntese ocorre principalmente em qual organela?",
+    "options": {
+      "A": "Mitocôndria",
+      "B": "Lisossomo",
+      "C": "Ribossomo",
+      "D": "Cloroplasto",
+      "E": "Complexo de Golgi"
+    },
+    "correctAnswer": "D"
+  },
+  {
+    "id": 69,
+    "question": "Em que país surgiu a filosofia ocidental?",
+    "options": {
+      "A": "Egito",
+      "B": "China",
+      "C": "Índia",
+      "D": "Grécia",
+      "E": "Itália"
+    },
+    "correctAnswer": "D"
+  },
+  {
+    "id": 70,
+    "question": "Qual destas é uma obra de Shakespeare?",
+    "options": {
+      "A": "O Primo Basílio",
+      "B": "Os Lusíadas",
+      "C": "Hamlet",
+      "D": "Dom Casmurro",
+      "E": "Ilíada"
+    },
+    "correctAnswer": "C"
+  },
+  {
+    "id": 71,
+    "question": "Qual físico formulou o princípio da incerteza?",
+    "options": {
+      "A": "Bohr",
+      "B": "Heisenberg",
+      "C": "Planck",
+      "D": "Dirac",
+      "E": "Feynman"
+    },
+    "correctAnswer": "B"
+  },
+  {
+    "id": 72,
+    "question": "Quem foi o primeiro imperador romano?",
+    "options": {
+      "A": "Nero",
+      "B": "Júlio César",
+      "C": "Augusto",
+      "D": "César Adriano",
+      "E": "Tibério"
+    },
+    "correctAnswer": "C"
+  },
+  {
+    "id": 73,
+    "question": "Qual é o nome da galáxia mais próxima da Via Láctea?",
+    "options": {
+      "A": "Andrômeda",
+      "B": "Triângulo",
+      "C": "Centaurus A",
+      "D": "Sombrero",
+      "E": "Olho Negro"
+    },
+    "correctAnswer": "A"
+  },
+  {
+    "id": 74,
+    "question": "Qual filósofo escreveu 'A República'?",
+    "options": {
+      "A": "Aristóteles",
+      "B": "Platão",
+      "C": "Sócrates",
+      "D": "Descartes",
+      "E": "Sêneca"
+    },
+    "correctAnswer": "B"
+  },
+  {
+    "id": 75,
+    "question": "Em que ano começou a Primeira Guerra Mundial?",
+    "options": {
+      "A": "1900",
+      "B": "1912",
+      "C": "1914",
+      "D": "1918",
+      "E": "1920"
+    },
+    "correctAnswer": "C"
+  },
+  {
+    "id": 76,
+    "question": "Qual é o processo responsável pela formação de novas espécies?",
+    "options": {
+      "A": "Mutação",
+      "B": "Especiação",
+      "C": "Seleção artificial",
+      "D": "Homeostase",
+      "E": "Regeneração"
+    },
+    "correctAnswer": "B"
+  },
+  {
+    "id": 77,
+    "question": "O que significa a sigla 'HTTP'?",
+    "options": {
+      "A": "HyperText Transfer Protocol",
+      "B": "High Transmission Text Package",
+      "C": "HyperTool Transfer Program",
+      "D": "Host Transfer Tech Protocol",
+      "E": "High Text Technology Protocol"
+    },
+    "correctAnswer": "A"
+  },
+  {
+    "id": 78,
+    "question": "Qual é a equação da famosa relação de equivalência massa-energia de Einstein?",
+    "options": {
+      "A": "F = ma",
+      "B": "E = mv²",
+      "C": "E = mc²",
+      "D": "m = Ec²",
+      "E": "P = VI"
+    },
+    "correctAnswer": "C"
+  },
+  {
+    "id": 79,
+    "question": "Quem escreveu 'Crime e Castigo'?",
+    "options": {
+      "A": "Tolstói",
+      "B": "Dostoiévski",
+      "C": "Tchékhov",
+      "D": "Górki",
+      "E": "Pushkin"
+    },
+    "correctAnswer": "B"
+  },
+  {
+    "id": 80,
+    "question": "Qual é o maior lago de água doce do mundo?",
+    "options": {
+      "A": "Lago Vitória",
+      "B": "Lago Baikal",
+      "C": "Lago Michigan",
+      "D": "Lago Tanganyika",
+      "E": "Lago Superior"
+    },
+    "correctAnswer": "B"
+  },
+  {
+    "id": 81,
+    "question": "A constante de Planck está associada a qual área da física?",
+    "options": {
+      "A": "Relatividade",
+      "B": "Termodinâmica",
+      "C": "Mecânica quântica",
+      "D": "Ondulatória",
+      "E": "Eletromagnetismo"
+    },
+    "correctAnswer": "C"
+  },
+  {
+    "id": 82,
+    "question": "Quantos ossos tem o corpo humano adulto, em média?",
+    "options": {
+      "A": "186",
+      "B": "200",
+      "C": "206",
+      "D": "212",
+      "E": "220"
+    },
+    "correctAnswer": "C"
+  },
+  {
+    "id": 83,
+    "question": "Quem desenvolveu o método cartesiano?",
+    "options": {
+      "A": "Pascal",
+      "B": "Kant",
+      "C": "Descartes",
+      "D": "Nietzsche",
+      "E": "Aristóteles"
+    },
+    "correctAnswer": "C"
+  },
+  {
+    "id": 84,
+    "question": "Qual país era liderado por Mao Tsé-Tung?",
+    "options": {
+      "A": "Coreia do Norte",
+      "B": "China",
+      "C": "Vietnã",
+      "D": "Japão",
+      "E": "Laos"
+    },
+    "correctAnswer": "B"
+  },
+  {
+    "id": 85,
+    "question": "Qual destas partículas é composta por quarks?",
+    "options": {
+      "A": "Elétron",
+      "B": "Fóton",
+      "C": "Nêutron",
+      "D": "Neutrino",
+      "E": "Posítron"
+    },
+    "correctAnswer": "C"
+  },
+  {
+    "id": 86,
+    "question": "Qual é o idioma oficial do Irã?",
+    "options": {
+      "A": "Árabe",
+      "B": "Urdu",
+      "C": "Turco",
+      "D": "Persa (Farsi)",
+      "E": "Curdo"
+    },
+    "correctAnswer": "D"
+  },
+  {
+    "id": 87,
+    "question": "Qual foi a primeira civilização a desenvolver a escrita?",
+    "options": {
+      "A": "Egípcios",
+      "B": "Maias",
+      "C": "Sumérios",
+      "D": "Fenícios",
+      "E": "Persas"
+    },
+    "correctAnswer": "C"
+  },
+  {
+    "id": 88,
+    "question": "Qual é o nome da estrela mais próxima da Terra depois do Sol?",
+    "options": {
+      "A": "Alpha Centauri A",
+      "B": "Proxima Centauri",
+      "C": "Sirius",
+      "D": "Betelgeuse",
+      "E": "Rigel"
+    },
+    "correctAnswer": "B"
+  },
+  {
+    "id": 89,
+    "question": "O tetragrama sagrado YHWH pertence a qual tradição religiosa?",
+    "options": {
+      "A": "Cristianismo",
+      "B": "Islamismo",
+      "C": "Judaísmo",
+      "D": "Hinduísmo",
+      "E": "Budismo"
+    },
+    "correctAnswer": "C"
+  },
+  {
+    "id": 90,
+    "question": "Qual é a capital do Uzbequistão?",
+    "options": {
+      "A": "Tashkent",
+      "B": "Bishkek",
+      "C": "Ashgabat",
+      "D": "Dushanbe",
+      "E": "Almaty"
+    },
+    "correctAnswer": "A"
   }
 ]
