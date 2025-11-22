@@ -45,6 +45,8 @@ public class GUIClient {
     private int port;
     private static Image icon = null;
 
+    private String nickname;
+
     public GUIClient() {
         audioManager = new AudioManager();
         audioManager.setBGMVolume(-30f);
@@ -116,7 +118,7 @@ public class GUIClient {
     }
     private void sendNickname() {
         try {
-            String nickname = nicknameField.getText().trim();
+            nickname = nicknameField.getText().trim();
             if (nickname.isEmpty() || out == null) return;
             NicknameData data = new NicknameData();
             data.nickname = nickname;
@@ -204,6 +206,11 @@ public class GUIClient {
                                 AnswerData answerData = new AnswerData();
                                 answerData.answer = key;
                                 sendMessage(new Message(Command.SENT_ANSWER, mapper.writeValueAsString(answerData)));
+                                if( key.equals(question.correctAnswer.toString()) ) {
+                                    audioManager.playFX("ost/fx/right.wav");
+                                } else {
+                                    audioManager.playFX("ost/fx/wrong.wav");
+                                }
                                 for (Component c : optionsPanel.getComponents()) c.setEnabled(false);
                             } catch (IOException ex) {
                                 appendStatus("Erro ao enviar resposta: " + ex.getMessage());
@@ -220,7 +227,7 @@ public class GUIClient {
 
                 case GAME_START -> {
                     audioManager.playFX("ost/fx/game_start.wav");
-                    audioManager.playFXDelayed("ost/fx/good_luck.wav",500);
+                    audioManager.playFX("ost/fx/good_luck.wav");
                     appendStatus("O jogo começou!");
                 }
 
