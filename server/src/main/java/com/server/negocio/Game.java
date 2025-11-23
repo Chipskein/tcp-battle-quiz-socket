@@ -19,7 +19,7 @@ import java.util.concurrent.ExecutionException;
 public class Game {
     private static final Logger log = Logger.getLogger(Game.class.getName());
 
-    private final int POINTS_TO_WIN = 30;
+    public static final int POINTS_TO_WIN = 30;
 
     private final int POINTS_FIRST_HIT = 5;
 

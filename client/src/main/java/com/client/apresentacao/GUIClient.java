@@ -5,6 +5,7 @@ import com.client.negocio.AudioManager;
 import com.client.negocio.Message;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.server.negocio.Command;
+import com.server.negocio.Game;
 import com.server.negocio.Question;
 import com.server.negocio.ClientMessageUtil.*;
 
@@ -48,13 +49,14 @@ public class GUIClient {
     private String host;
     private int port;
     private static Image icon = null;
+    private boolean closeToWin = false;
 
     private String nickname;
 
     public GUIClient() {
         audioManager = new AudioManager();
-        audioManager.setBGMVolume(-30f);
-        audioManager.setFXVolume(-15f);
+        audioManager.setBGMVolume(-20f);
+        audioManager.setFXVolume(-10f);
         setupGUI();
         audioManager.playBGM("ost/theme.wav", true);
     }
@@ -300,7 +302,19 @@ public class GUIClient {
                 case SHOW_SCORE -> {
                     PlayerDTO[] players = mapper.readValue(msg.getData(), PlayerDTO[].class);
                     appendStatus("Pontuação Atual:");
+
                     for (PlayerDTO p : players) appendStatus("- " + p.getNickname() + ": " + p.getScore());
+
+                    if (!closeToWin) {
+                        for (PlayerDTO p : players) {
+                            if (p.getScore() >= Game.POINTS_TO_WIN - 10) {
+                                audioManager.playBGM("ost/suspense.wav", true);
+                                closeToWin = true;
+                                break;
+                            }
+                        }
+                    }
+
                 }
 
                 case ERROR -> appendStatus("Erro do servidor: " + msg.getData());
@@ -308,6 +322,8 @@ public class GUIClient {
                 case NEW_GAME -> {
                     statusArea.setText("");
                     appendStatus("Novo jogo iniciado!");
+                    audioManager.playFX("ost/fx/game_start.wav");
+                    audioManager.playFX("ost/fx/good_luck.wav");
                 }
 
                 case DISCONNECTED -> {
